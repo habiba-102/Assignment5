@@ -1,4 +1,5 @@
 -- 1- Create the required tables for the retail store database based on the tables structure and relationships. 
+create database retail_store;
 create table suppliers (
     SupplierID int primary key auto_increment,
     SupplierName text,
