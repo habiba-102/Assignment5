@@ -1,6 +1,26 @@
--- SQL dialect: MySQL
 -- 1- Create the required tables for the retail store database based on the tables structure and relationships. 
--- i have created the required tables using phpMyAdmin GUI
+create table suppliers (
+    SupplierID int primary key auto_increment,
+    SupplierName text,
+    ContactNumber text
+);
+
+create table products (
+    ProductID int primary key auto_increment,
+    ProductName text,
+    Price decimal,
+    StockQuantity int,
+    SupplierID int,
+    foreign key (SupplierID) references suppliers(SupplierID)
+);
+
+create table sales (
+    SaleID int primary key auto_increment,
+    ProductID int,
+    QuantitySold int,
+    SaleDate DATE,
+    foreign key (ProductID) references products(ProductID)
+);
 
 -- 2- Add a column “Category” to the Products table. 
 alter table  products add column Category text;
